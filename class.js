@@ -1,9 +1,21 @@
 class vehicle {
+    #currentSpeed
     constructor (brand, color, currentSpeed, passengerNumber){
         this.brand = brand;
         this.color = color;
-        this.currentSpeed = currentSpeed;
+        this.#currentSpeed = currentSpeed;
         this.passengerNumber = passengerNumber;
+    }
+
+    get currentSpeed (){
+        return this.#currentSpeed
+    }
+    set currentSpeed (value){
+        if(value < 0){
+            console.log('erro, o valor nao pode ser menor que 0')
+        } else {
+            this.#currentSpeed += value
+        }
     }
 }
 
